@@ -295,3 +295,11 @@ img {
 	outline: none;
 	border: none;
 }
+
+.all {
+	/*text-decoration: none;*/
+	color: #EFEEEE;
+	font-size: 0.6em;
+	float: right;
+	margin-right: 10px;
+}

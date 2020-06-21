@@ -55,7 +55,7 @@ function loadList() {
 		{
 			if(data[i].ty)
 			{
-				todo += "<li draggable='true' class='color-change-li'>"
+				todo += "<li class='color-change-li'>"
 				+ "<p id='p-" + i + "' ontouchend='javascript:edit(" + i + ")'>"
 				+ data[i].con + "</p><a class='check color-change-a' href='javascript:changeState("
 				+ i + ", false)'><img src='image/icon-test.svg' /></a>"
@@ -64,7 +64,7 @@ function loadList() {
 			}
 			else
 			{
-				done += "<li draggable='true' class='color-change-li'>"
+				done += "<li class='color-change-li'>"
 				+ "<p id='p-" + i + "' ontouchend='javascript:edit(" + i + ")'>"
 				+ data[i].con + "</p><a class='check color-change-a' href='javascript:changeState("
 				+ i + ", true)'><img src='image/upward.svg' /></a>"
@@ -144,4 +144,28 @@ function edit(i)
 			loadList();
 		}
 	}
+}
+
+function allDo(ty) {
+	let data = getData();
+	for(let i = 0; i < data.length; i++)
+	{
+		data[i]["ty"] = ty;
+	}
+	localStorage.setItem("MYtodoList",JSON.stringify(data));
+	loadList();
+}
+
+function deleteAllDone() {
+	let data = getData();
+	for(let i = 0; i < data.length; i++)
+	{
+		if(!data[i]["ty"])
+		{
+			data.splice(i, 1);
+			i--;
+		}
+	}
+	localStorage.setItem("MYtodoList",JSON.stringify(data));
+	loadList();
 }

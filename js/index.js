@@ -51,9 +51,19 @@ function loadList() {
 		let donelist = document.getElementById("done");
 		let todo = "";
 		let done = "";
+		let showTodo = false;
+		let showDone = false;
+		if(document.getElementById("show-todo").classList.contains("display"))
+		{
+			showTodo = true;
+		}
+		if(document.getElementById("show-done").classList.contains("display"))
+		{
+			showDone = true;
+		}
 		for(let i = data.length - 1; i >= 0; i--)
 		{
-			if(data[i].ty)
+			if(data[i].ty && showTodo)
 			{
 				todo += "<li class='color-change-li'>"
 				+ "<p id='p-" + i + "' ontouchend='javascript:edit(" + i + ")'>"
@@ -62,7 +72,7 @@ function loadList() {
 				+ "<a class='cancel color-change-a' href='javascript:deleteOne("
 				+ i + ")'><img src='image/close.svg' /></a></li>";					
 			}
-			else
+			else if((!data[i].ty) && showDone)
 			{
 				done += "<li class='color-change-li'>"
 				+ "<p id='p-" + i + "' ontouchend='javascript:edit(" + i + ")'>"
@@ -171,5 +181,29 @@ function deleteAll(ty) {
 		}
 	}
 	localStorage.setItem("MYtodoList",JSON.stringify(data));
+	loadList();
+}
+
+function folder(ty) {
+	let a;
+	if(ty)
+	{
+		a = document.getElementById("show-todo");
+	}
+	else
+	{
+		a = document.getElementById("show-done");
+	}
+	
+	if(a.classList.contains("display"))
+	{
+		a.classList.remove("display");
+		a.firstChild.src = "image/upward.svg";
+	}
+	else
+	{
+		a.classList.add("display");
+		a.firstChild.src = "image/down.svg";
+	}
 	loadList();
 }

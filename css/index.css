@@ -4,11 +4,11 @@ body {
 	font-family: "mv boli";
 	margin: 0;
 	padding: 0;
-	background-image: url(../image/img_10.jpg);
+	background-image: url(../image/slide_5.jpg);
 	/*background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
-	-webkit-background-size: 100% 100%;*/
-	background-size: cover;
+	-webkit-background-size: 100% 100%;
+	background-size: cover;*/
 }
 
 /*input*/
@@ -110,6 +110,14 @@ body {
 
 /*list*/
 
+.list h3 a {
+	display: inline-block;
+	width: 30px;
+	height: 100%;
+	float: left;
+	margin: auto auto;
+}
+
 .list {
 	display: block;
 	max-width: 400px;
@@ -121,6 +129,7 @@ body {
 }
 
 .list li {
+	overflow: hidden;
 	height: 32px;
 	line-height: 32px;
 	background: #fff;
@@ -173,6 +182,7 @@ body {
 	margin: 0;
 	padding: 0;
 	border: none;
+	width: 70%;
 }
 
 .all {

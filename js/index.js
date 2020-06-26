@@ -4,7 +4,7 @@ window.onload = function() {
 	loadList();
 	
 	document.getElementById("color-variations").classList.add("sleep");
-	document.getElementById("option-toggle").addEventListener("touchend", function() {
+	document.getElementById("setting").addEventListener("touchend", function() {
 		let colorVariation = document.getElementById("color-variations");
 		if(colorVariation.classList.contains("sleep"))
 		{
@@ -127,19 +127,23 @@ function deleteOne(i)
 function edit(i)
 {
 	let item = document.getElementById("p-" + i);
+	if(document.getElementById("edit") != null)
+	{
+		return;
+	}
 	let con = item.innerHTML;
 	item.innerHTML = "<input id='edit' value='" + con + "' />";
 	let input = document.getElementById("edit");
 	input.focus();
 	input.onblur = function() {
-		if(this.value == "" || this.value == con)
+		if(input.value == "" || input.value == con)
 		{
 			item.innerHTML = con;
 		}
 		else
 		{
 			let data = getData();
-			data[i]["con"] = this.value;
+			data[i]["con"] = input.value;
 			localStorage.setItem("MYtodoList",JSON.stringify(data));
 			loadList();
 		}
@@ -156,11 +160,11 @@ function allDo(ty) {
 	loadList();
 }
 
-function deleteAllDone() {
+function deleteAll(ty) {
 	let data = getData();
 	for(let i = 0; i < data.length; i++)
 	{
-		if(!data[i]["ty"])
+		if(data[i]["ty"] == ty)
 		{
 			data.splice(i, 1);
 			i--;

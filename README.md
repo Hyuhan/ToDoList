@@ -38,7 +38,7 @@
 
 - 选择列表项的颜色 
 
-  | <img src="https://github.com/Hyuhan/ToDoList/blob/master/screenshot/1.png" width="25%" height="25%"> | <img src="https://github.com/Hyuhan/ToDoList/blob/master/screenshot/2.png" width="25%" height="25%"> | <img src="./screenshot/3.pnghttps://github.com/Hyuhan/ToDoList/blob/master/screenshot/3.png" width="25%" height="25%"> |
+  | <img src="https://github.com/Hyuhan/ToDoList/blob/master/screenshot/1.png" width="25%" height="25%"> | <img src="https://github.com/Hyuhan/ToDoList/blob/master/screenshot/2.png" width="25%" height="25%"> | <img src="https://github.com/Hyuhan/ToDoList/blob/master/screenshot/3.png" width="25%" height="25%"> |
 
   
 
